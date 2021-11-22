@@ -8,10 +8,15 @@ Adapted by Nick Gammon for Smaug and similar MUDs
 Implementation of:
 
 -Mouse wheel scrolling
+
 -Chat and mention alerts
+
 -Doubleclick to bottom
+
 -Saving of buffer between sessions
+
 -Autosave
+
 -Character name identification
 
 and adapted for After Earth
@@ -106,4 +111,4 @@ from the file:
     ></trigger>
 	
 
-PS this README is probably going to look like a mess because probably a lot of symbols need to be escaped in github README.md files. :P
+PS This README is probably going to look like a mess because probably a lot of symbols need to be escaped in github README.md files. :P
