@@ -1,4 +1,4 @@
-# after-earth-muchclient-plugins
+# after-earth-mushclient-plugins
 Miniwindow plugins for After Earth
 
 Bits of this plugin and ideas were borrowed and remixed from the MUSHclient community. http://www.gammon.com.au/forum/?id=9385 and others.
