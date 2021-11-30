@@ -7,12 +7,12 @@ Adapted by Nick Gammon for Smaug and similar MUDs
 
 Implementation of:
 
--- Mouse wheel scrolling
--- Chat and mention alerts
--- Doubleclick to bottom
--- Saving of buffer between sessions
--- Autosave
--- Character name identification
+- Mouse wheel scrolling
+- Chat and mention alerts
+- Doubleclick to bottom
+- Saving of buffer between sessions
+- Autosave
+- Character name identification
 
 and adapted for After Earth
 
@@ -20,18 +20,18 @@ by Nodens/Akane
 
 ## Features
 
--- Resizeable and their position is saved.
--- Scrollback is autosaved so your messages can survive a MUSHClient or PC crash.
--- Fonts and timestamps are configurable.
--- Mouse wheel scrolls the windows.
--- Right click on the window brings context menu for easy configuration.
--- Command line options available as well (see in plugin file header or click "show info" in MUSHclient's plugin management interface).
--- 2 modes of alarms. Either on every incoming line or when your name is mentioned.
+- Resizeable and their position is saved.
+- Scrollback is autosaved so your messages can survive a MUSHClient or PC crash.
+- Fonts and timestamps are configurable.
+- Mouse wheel scrolls the windows.
+- Right click on the window brings context menu for easy configuration.
+- Command line options available as well (see in plugin file header or click "show info" in MUSHclient's plugin management interface).
+- 2 modes of alarms. Either on every incoming line or when your name is mentioned.
 Obviously private window only has on/off because all messages are directed to you.
--- Character name is auto-identified for mention alarm system.
--- Left click on any line to copy the entire line.
--- Save the entire buffer to file via right click context menu.
--- Doubleclick on an the miniwindow to automatically scroll to it's bottom/current.
+- Character name is auto-identified for mention alarm system.
+- Left click on any line to copy the entire line.
+- Save the entire buffer to file via right click context menu.
+- Doubleclick on an the miniwindow to automatically scroll to it's bottom/current.
 
 
 
@@ -48,10 +48,10 @@ in each plugin's source, at the header.
 
 Caveats:
 
--- If you get a message about not set name run score in the game.
+- If you get a message about not set name run score in the game.
 This is needed for the beep-on-mention functionality.
 
--- On older systems with few resources the default lines to save
+- On older systems with few resources the default lines to save
 may be too much. This is because plugins in Mushclient run in
 the main thread which causes a blocking behavior every time the
 plugins serialize and saves their scrollback buffer in plugin 
@@ -75,12 +75,12 @@ Feel free to experiment with those values if you have faster/slower
 systems but remember that MAX_LINES must ALWAYS have a higher value
 than MAX_SAVE_LINES.
 
--- If you want to change the default beeping sound you have to change
+- If you want to change the default beeping sound you have to change
 all the trigger definitions with "C:\WINDOWS\Media\Windows Ding.wav"
 defined to another file on your system. I plan to eventually expose
 sound changing functionality via the right click context menu.
 
--- Currently the Public channels plugin pulls emotes but only those
+- Currently the Public channels plugin pulls emotes but only those
 that display as "emote_text [name of emoting player]". And dispite
 my horrific regex this manages to pull a few other lines as well
 that are difficult to exclude (mostly from helpfiles). If you don't
