@@ -86,7 +86,7 @@ my horrific regex this manages to pull a few other lines as well
 that are difficult to exclude (mostly from helpfiles). If you don't
 like this and want emoted removed entirely, delete these 3 triggers
 from the file:
-
+```
 	<trigger
     enabled="y"
 	regexp="y"
@@ -119,3 +119,4 @@ from the file:
     sequence="100"
 	group="chatnosound"
     ></trigger>
+```
