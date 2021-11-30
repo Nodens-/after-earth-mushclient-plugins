@@ -19,9 +19,9 @@
     language="Lua"
     purpose="Move public chat to a miniwindow"
     date_written="2020-03-29"
-    date_modified="2021-11-22"
+    date_modified="2021-11-30"
     requires="4.52"
-    version="1.0"
+    version="1.1"
     save_state="y"
     >
     
@@ -288,7 +288,7 @@ USAGE:
 	regexp="y"
 	expand_variables="y"
 	keep_evaluating="y"
-	match="^(?! |Syntax:)(.*)(?i)(@name)(?-i)(.*) \[(?!@name|OOC|AFK|up|down|north|south|east|west|northeast|northwest|southeast|southwest|HELP |Enter your|room\||Success|Rummage|App| Air\:|\d| \d)(.*)\]$"
+	match="^(?! |Syntax:)(.*)(?i)(@name)(?-i)(.*) \[(?!@name|F\]|OOC|AFK|up|down|north|south|east|west|northeast|northwest|southeast|southwest|HELP |Enter your|room\||Success|Rummage|App\:| Air\:|\d| \d)(.*)\]$"
     sequence="100"
 	sound="C:\WINDOWS\Media\Windows Ding.wav"
 	group="chatmention"
@@ -297,7 +297,7 @@ USAGE:
 	<trigger
     enabled="n"
 	regexp="y"
-    match="^(?! |Syntax:)(.*) \[(?!@name|OOC|AFK|up|down|north|south|east|west|northeast|northwest|southeast|southwest|HELP |Enter your|room\||Success|Rummage|App| Air\:|\d| \d)(.*)\]$"
+    match="^(?! |Syntax:)(.*) \[(?!@name|F\]|OOC|AFK|up|down|north|south|east|west|northeast|northwest|southeast|southwest|HELP |Enter your|room\||Success|Rummage|App\:| Air\:|\d| \d)(.*)\]$"
     script="chats"
     omit_from_output="y"
     sequence="100"
@@ -309,7 +309,7 @@ USAGE:
     enabled="y"
 	regexp="y"
 	keep_evaluating="y"
-    match="^(?! |Syntax:)(.*) \[(?!@name|OOC|AFK|up|down|north|south|east|west|northeast|northwest|southeast|southwest|HELP |Enter your|room\||Success|Rummage|App| Air\:|\d| \d)(.*)\]$"
+    match="^(?! |Syntax:)(.*) \[(?!@name|F\]|OOC|AFK|up|down|north|south|east|west|northeast|northwest|southeast|southwest|HELP |Enter your|room\||Success|Rummage|App:\| Air\:|\d| \d)(.*)\]$"
     script="chats"
     omit_from_output="y"
     sequence="100"

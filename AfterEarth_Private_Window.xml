@@ -19,9 +19,9 @@
     language="Lua"
     purpose="Move private chat to a miniwindow"
     date_written="2020-03-29"
-    date_modified="2021-11-22"
+    date_modified="2021-11-30"
     requires="4.52"
-    version="1.0"
+    version="1.1"
     save_state="y"
     >
     
@@ -47,93 +47,55 @@ USAGE:
 </plugin>
 
 <triggers>
-<!-- Display always with no sound triggers (Info/Monitoring) 
+<!-- Display always with no sound triggers (Info/Monitoring)-->
+
 	<trigger
     enabled="y"
 	regexp="y"
-    match="^\[m\] (.*)"
+    match="^\[Implant Interface\] Contact not available. Try again later.$"
     script="chats"
     omit_from_output="y"
     sequence="100"
     ></trigger>
--->
-	
-<!-- Outbound channel triggers 
-	<trigger
-    enabled="y"
-	regexp="y"
-    match="^\[-\] Write: (.*)"
-    script="chats"
-    omit_from_output="y"
-    sequence="100"
-    ></trigger>
--->
 
 <!-- Inbound/Outbound channel triggers (Double triggers with sound and nosound groups so they can be toggled)-->
-
-	<trigger
-    enabled="y"
-	regexp="y"
-    match="^\[Implant Interface\] (.*)"
-    script="chats"
-    omit_from_output="y"
-    sequence="100"
-	sound="C:\Windows\Media\Quirky\Windows Default.wav"
-	group="chatsound"
-    ></trigger>
 	
-	<trigger
-    enabled="n"
-	regexp="y"
-    match="^\[Implant Interface\] (.*)"
-    script="chats"
-    omit_from_output="y"
-    sequence="100"
-	group="chatnosound"
-    ></trigger>
-	
-	<trigger
-    enabled="y"
-	regexp="y"
-    match='^(.*) signs, \"(.*)\"'
-    script="chats"
-    omit_from_output="y"
-    sequence="100"
-	sound="C:\Windows\Media\Quirky\Windows Default.wav"
-	group="chatsound"
-    ></trigger>
-	
-	<trigger
-    enabled="n"
-	regexp="y"
-    match='^(.*) signs, \"(.*)\"'
-    script="chats"
-    omit_from_output="y"
-    sequence="100"
-	group="chatnosound"
-    ></trigger>
-
 <!-- Outbout channel triggers (Double triggers with sound and nosound groups so they can be toggled)-->
 
 	<trigger
     enabled="y"
 	regexp="y"
-    match='^(.*) speaks into her comms receiver, \"(.*)\"'
+    match="^\[Implant Interface\] Text Message \(to (.*)\)\: (.*)"
     script="chats"
     omit_from_output="y"
     sequence="100"
-	sound="C:\Windows\Media\Quirky\Windows Default.wav"
-	group="chatsound"
+    ></trigger>
+
+	<trigger
+    enabled="y"
+	regexp="y"
+    match='^@name speaks into her comms receiver, \"(.*)\"'
+    script="chats"
+    omit_from_output="y"
+    sequence="100"
     ></trigger>
 	
 	<trigger
-    enabled="n"
+    enabled="y"
 	regexp="y"
-    match='^(.*) speaks into her comms receiver, \"(.*)\"'
+    match='^You (tell|reply to) (.*), \"(.*)\"$'
     script="chats"
     omit_from_output="y"
     sequence="100"
-	group="chatnosound"
+    ></trigger>
+	
+	<trigger
+    enabled="y"
+	regexp="y"
+    match='^@name signs, \"(.*)\"'
+    script="chats"
+    omit_from_output="y"
+    sequence="100"
     ></trigger>
 
 <!-- Inbound channel triggers (Double triggers with sound and nosound groups so they can be toggled)-->
@@ -141,7 +103,7 @@ USAGE:
 	<trigger
     enabled="y"
 	regexp="y"
-    match='^(.*) through her implant, \"(.*)\"'
+    match="^\[Implant Interface\] Text Message \(from (.*)\)\: (.*)$"
     script="chats"
     omit_from_output="y"
     sequence="100"
@@ -152,7 +114,91 @@ USAGE:
 	<trigger
     enabled="n"
 	regexp="y"
-    match='^(.*) through her implant, \"(.*)\"'
+    match="^\[Implant Interface\] Text Message \(from (.*)\)\: (.*)$"
+    script="chats"
+    omit_from_output="y"
+    sequence="100"
+	group="chatnosound"
+    ></trigger>
+	
+	<trigger
+    enabled="y"
+	regexp="y"
+    match='^(.*) through her implant, \"(.*)\"$'
+    script="chats"
+    omit_from_output="y"
+    sequence="100"
+	sound="C:\Windows\Media\Quirky\Windows Default.wav"
+	group="chatsound"
+    ></trigger>
+	
+	<trigger
+    enabled="n"
+	regexp="y"
+    match='^(.*) through her implant, \"(.*)\"$'
+    script="chats"
+    omit_from_output="y"
+    sequence="100"
+	group="chatnosound"
+    ></trigger>
+	
+	<trigger
+    enabled="y"
+	regexp="y"
+    match='^(.*)(?<!@name) speaks into her comms receiver, \"(.*)\"$'
+    script="chats"
+    omit_from_output="y"
+    sequence="100"
+	sound="C:\Windows\Media\Quirky\Windows Default.wav"
+	group="chatsound"
+    ></trigger>
+	
+	<trigger
+    enabled="n"
+	regexp="y"
+    match='^(.*)(?<!@name) speaks into her comms receiver, \"(.*)\"$'
+    script="chats"
+    omit_from_output="y"
+    sequence="100"
+	group="chatnosound"
+    ></trigger>
+	
+	<trigger
+    enabled="y"
+	regexp="y"
+    match='^(.*) tells you, \"(.*)\"$'
+    script="chats"
+    omit_from_output="y"
+    sequence="100"
+	sound="C:\Windows\Media\Quirky\Windows Default.wav"
+	group="chatsound"
+    ></trigger>
+	
+	<trigger
+    enabled="n"
+	regexp="y"
+    match='^(.*) tells you, \"(.*)\"$'
+    script="chats"
+    omit_from_output="y"
+    sequence="100"
+	group="chatnosound"
+    ></trigger>
+	
+	<trigger
+    enabled="y"
+	regexp="y"
+    match='^(.*)(?<!@name) signs, \"(.*)\"$'
+    script="chats"
+    omit_from_output="y"
+    sequence="100"
+	sound="C:\Windows\Media\Quirky\Windows Default.wav"
+	group="chatsound"
+    ></trigger>
+	
+	<trigger
+    enabled="n"
+	regexp="y"
+    match='^(.*)(?<!@name) signs, \"(.*)\"$'
     script="chats"
     omit_from_output="y"
     sequence="100"
@@ -350,6 +396,10 @@ function OnPluginInstall()
 	
 	-- Init saved sound option
 	process_sound_option()
+	
+	if (GetVariable("name") == nil or GetVariable("name") == "") then
+		name = GetInfo(3)
+	end -- if
 	
     OnPluginEnable ()  -- do initialization stuff
 end -- function OnPluginInstall
